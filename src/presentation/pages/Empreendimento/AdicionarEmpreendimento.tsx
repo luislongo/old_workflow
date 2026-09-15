@@ -37,7 +37,11 @@ const INITIAL_FORM: FormState = {
   tipo: "",
 };
 
-const TIPOS: TipoEmpreendimento[] = ["Residencial", "Comercial", "Infraestrutura"];
+const TIPOS: TipoEmpreendimento[] = [
+  "Residencial",
+  "Comercial",
+  "Infraestrutura",
+];
 
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -74,7 +78,10 @@ export function AdicionarEmpreendimento() {
   }
 
   function handleTipoChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setForm((prev) => ({ ...prev, tipo: e.target.value as TipoEmpreendimento }));
+    setForm((prev) => ({
+      ...prev,
+      tipo: e.target.value as TipoEmpreendimento,
+    }));
     if (errors.tipo) {
       setErrors((prev) => ({ ...prev, tipo: undefined }));
     }
@@ -115,7 +122,7 @@ export function AdicionarEmpreendimento() {
     <div className="flex flex-col flex-1 max-w-[800px] w-full">
       <div>
         <H1>Adicionar empreendimento vazio</H1>
-        <Subtitle className="mt-200 mb-600 text-neutral-400">
+        <Subtitle className="mt-400 mb-600 text-neutral-400">
           Preencha as informações necessárias para cadastrar o empreendimento
         </Subtitle>
 
