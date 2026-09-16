@@ -17,7 +17,7 @@ interface AppLayoutProps {
 const ROUTES = [
   { path: "/empreendimento", label: "Empreendimento", icon: <IconApartment />, disabled: false },
   { path: "/dashboards", label: "Dashboards", icon: <IconDashboard />, disabled: false },
-  { path: "/relatorios", label: "Relatórios", icon: <IconAssignment />, disabled: true },
+  { path: "/relatorios", label: "Relatórios", icon: <IconAssignment />, disabled: false },
 ];
 
 const Avatar = () => <div className="w-12 h-12 rounded-full bg-neutral-300" />;
