@@ -15,9 +15,9 @@ interface AppLayoutProps {
 }
 
 const ROUTES = [
-  { path: "/empreendimento", label: "Empreendimento", icon: <IconApartment /> },
-  { path: "/dashboards", label: "Dashboards", icon: <IconDashboard /> },
-  { path: "/relatorios", label: "Relatórios", icon: <IconAssignment /> },
+  { path: "/empreendimento", label: "Empreendimento", icon: <IconApartment />, disabled: false },
+  { path: "/dashboards", label: "Dashboards", icon: <IconDashboard />, disabled: false },
+  { path: "/relatorios", label: "Relatórios", icon: <IconAssignment />, disabled: true },
 ];
 
 const Avatar = () => <div className="w-12 h-12 rounded-full bg-neutral-300" />;
@@ -40,14 +40,15 @@ export function AppLayout({ children }: AppLayoutProps) {
                 label={route.label}
                 icon={route.icon}
                 active={pathname === route.path}
-                onClick={() => navigate(route.path)}
+                disabled={route.disabled}
+                onClick={route.disabled ? undefined : () => navigate(route.path)}
               />
             ))}
           </Navbar>
         }
         className="h-[64px] border-b border-neutral-200"
       />
-      <main className="flex-1 flex flex-col p-800 w-full max-w-[1200px] mx-auto">
+      <main className="flex-1 flex flex-col p-800 w-full mx-auto">
         {children}
       </main>
     </div>
