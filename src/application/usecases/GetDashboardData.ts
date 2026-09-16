@@ -2,7 +2,11 @@ import type { IDashboardRepository } from "../../domain/repositories/IDashboardR
 import type { DashboardData } from "../../domain/Dashboard";
 
 export class GetDashboardData {
-  constructor(private readonly repository: IDashboardRepository) {}
+  private readonly repository: IDashboardRepository;
+
+  constructor(repository: IDashboardRepository) {
+    this.repository = repository;
+  }
 
   execute(): Promise<DashboardData> {
     return this.repository.getDashboardData();
